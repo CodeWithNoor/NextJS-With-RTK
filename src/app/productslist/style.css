@@ -1,0 +1,17 @@
+#container {
+    height: auto;
+    padding: 50px;
+    /* outline: 2px solid rgba(128, 128, 128, 0.637); */
+    background-color: black;
+  }
+
+/* #add-product {
+  width: 200%;
+  margin: 100px 0;
+  padding: 15px 25px;
+  border: none;
+  color: #fff;
+  background: #000d58;
+  text-decoration: none;
+  text-align: center;
+} */
