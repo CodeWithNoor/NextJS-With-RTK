@@ -1,8 +1,17 @@
-const { createSlice, nanoid, current } = require("@reduxjs/toolkit");
+const { createSlice, nanoid, current, createAsyncThunk } = require("@reduxjs/toolkit");
+
+export const fetchAPI = createAsyncThunk("action", async () => {
+    console.log("fetching data")
+    const data = await fetch("http://localhost:3000/api/todo")
+    const user = await data.json()
+    return user.message
+})
 
 const initialState = {
+    fetchAPIinRTK: [],
     todos: JSON.parse(localStorage.getItem("task")) ? JSON.parse(localStorage.getItem("task")) : []
 }
+
 
 const todoSlice = createSlice({
     name: "todo",
@@ -32,6 +41,13 @@ const todoSlice = createSlice({
             state.todos = editData
             // localStorage.setItem("task", JSON.stringify(editData))
         }
+    },
+    extraReducers: (builder) => {
+        builder.addCase(fetchAPI.fulfilled, (state, action) => {
+            console.log("reducers", action)
+            state.isLoading = false,
+                state.fetchAPIinRTK = action.payload
+        })
     }
 });
 
