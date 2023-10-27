@@ -1,10 +1,22 @@
 const { createSlice, nanoid, current, createAsyncThunk } = require("@reduxjs/toolkit");
+import axios from "axios";
 
-export const fetchAPI = createAsyncThunk("action", async () => {
-    console.log("fetching data")
-    const data = await fetch("http://localhost:3000/api/todo")
-    const user = await data.json()
-    return user.message
+
+// createAsyncThunk ===> manage data fetching in RTK  
+// createAsyncThunk ===> return a standard Redux thunk action creator (pending, fulfilled, rejected)
+
+// export const fetchAPI = createAsyncThunk("action", async () => {
+//     console.log("fetching data")
+//     const data = await fetch("http://localhost:3000/api/todo")
+//     const user = await data.json()
+//     return user.message
+// })
+
+export const fetchAPIAxios = createAsyncThunk("action", async () => {
+    console.log("fetching data from axios")
+    const data = await axios.get("http://localhost:3000/api/todo")
+    const user = await data.data.message
+    return user
 })
 
 const initialState = {
@@ -43,7 +55,7 @@ const todoSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(fetchAPI.fulfilled, (state, action) => {
+        builder.addCase(fetchAPIAxios.fulfilled, (state, action) => {
             console.log("reducers", action)
             state.isLoading = false,
                 state.fetchAPIinRTK = action.payload

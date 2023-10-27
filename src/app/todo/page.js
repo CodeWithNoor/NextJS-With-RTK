@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchAPI } from "../redux/TodoSlice"
+import { fetchAPIAxios } from "../redux/TodoSlice"
 import { useSelector } from 'react-redux'
 
 const page = () => {
@@ -10,7 +10,7 @@ const page = () => {
     // console.log(data.todoData.fetchAPIinRTK)
 
     const taskDispatch = () => {
-        dispatch(fetchAPI())
+        dispatch(fetchAPIAxios())
     }
 
     return (
