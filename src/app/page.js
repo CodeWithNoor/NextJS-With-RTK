@@ -3,6 +3,7 @@
 // import UserList from "./components/UserList"
 // import Product from "./components/Product"
 import Todo from "./addtodo/page"
+import TodoApi from "./todo/page"
 
 export default function Home() {
   return (
@@ -10,7 +11,8 @@ export default function Home() {
       {/* <AddUser />
       <UserList /> */}
       {/* <Product /> */}
-      <Todo />
+      {/* <Todo /> */}
+      <TodoApi />
     </>
   )
 }

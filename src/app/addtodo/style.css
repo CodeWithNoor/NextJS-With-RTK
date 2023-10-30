@@ -37,3 +37,31 @@ button{
     color: aliceblue;
     cursor: pointer;
 }
+
+p:nth-child(1) {
+    color: red;
+    margin: 0 30px;
+  }
+  p:nth-child(2) {
+    color: rgb(255, 255, 255);
+    margin: 0 30px;
+  }
+  p:nth-child(3) {
+    color: rgb(255, 0, 0);
+    margin: 0 30px;
+  }
+  p:nth-child(4) {
+    margin: 0 30px;
+    cursor: pointer;
+  }
+  #btn{
+    background-color: rgb(255, 0, 0) !important;
+    border: none;
+    width: 100% !important;
+  }
+  
+  a{
+      color: rgb(255, 255, 255) !important;
+      text-decoration: none !important;
+  }
+  
