@@ -4,16 +4,15 @@ import { useUpdateAPIMutation } from "../../redux/TodoSlice"
 import { useRouter } from 'next/navigation'
 
 const page = (props) => {
+    console.log(props.params.todoId)
     const [task, setTask] = useState("")
     const [fetchAPI] = useUpdateAPIMutation()
     const router = useRouter()
 
-    const handletask = () => {
-        fetchAPI({ task }, props.id)
+    const handletask = async () => {
+        await fetchAPI({ task, id: props.params.todoId })
         setTask("")
-        alert("Updated Successfully")
-    };
-
+    }
 
     const handleRouting = () => {
         router.push("/todo")

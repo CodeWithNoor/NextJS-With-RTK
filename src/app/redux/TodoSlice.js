@@ -48,7 +48,7 @@ export const todoAPI = createApi({
                 method: 'PUT',
                 body: patch,
             }),
-            invalidatesTags: (result, error, { id }) => [{ type: 'Post', id }],
+            invalidatesTags: ['Put'], // Invalidates the 'Post' tag
         }),
     })
 })
